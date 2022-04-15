@@ -1,0 +1,32 @@
+version: "2"
+
+networks:
+  ejsProjectTemplate:
+    driver: bridge
+
+services:
+  nginx-proxy:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    restart: always
+    container_name: nginx-proxy-service
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/:/etc/nginx/conf.d
+      - ./tmp:/tmp
+    networks:
+      - ejsProjectTemplate
+
+  express-web:
+    build: 
+      context: .
+      dockerfile: express.Dockerfile
+    container_name: express-web-service
+    restart: always
+    networks:
+      - ejsProjectTemplate
+    volumes:
+      - ./app:/usr/src/app
