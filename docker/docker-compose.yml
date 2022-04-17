@@ -1,0 +1,74 @@
+version: "3"
+
+networks:
+  front:
+    driver: bridge
+  back:
+    driver: bridge
+  docker-network:
+    driver: bridge
+
+services:
+  nginx-proxy:
+    build:
+      context: ../backend/core/proxy.nginx
+      dockerfile: nginx.Dockerfile
+    restart: always
+    volumes:
+      - ../backend/core/proxy.nginx/config/default.conf:/etc/nginx/conf.d/default.conf
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - docker-network
+      - front
+    depends_on:
+      - mvc-landing
+
+  mvc-landing:
+    build: 
+      context: ../backend/api/mvc.landing/source
+      dockerfile: express.Dockerfile
+    container_name: express-mvc-landing
+    restart: always
+    networks:
+      - front
+      - back
+    volumes:
+      - ../backend/api/mvc.landing/source/controllers:/usr/src/app/controllers
+      - ../backend/api/mvc.landing/source/models:/usr/src/app/models
+      - ../backend/api/mvc.landing/source/routes:/usr/src/app/routes
+      - ../backend/api/mvc.landing/source/utils:/usr/src/app/utils
+      - ../backend/api/mvc.landing/source/views:/usr/src/app/views
+      - ../backend/api/mvc.landing/source/app.js:/usr/src/app/app.js
+      - ../backend/api/mvc.landing/source/package.json:/usr/src/app/package.json
+      - ../backend/database/mock:/usr/src/app/database
+    depends_on:
+      - assets-service
+    
+  assets-service:
+    build: 
+      context: ../assets/source
+      dockerfile: assets.Dockerfile
+    container_name: assets-service
+    restart: always
+    networks:
+      - front
+    volumes:
+      - ../assets/source/default.conf:/etc/nginx/conf.d/default.conf
+      - ../assets/source:/data/assets
+
+  fontend-landing:
+    build: 
+      context: ../frontend/fe.landing/source
+      dockerfile: landing.Dockerfile
+    container_name: fe-landing-service
+    restart: always
+    networks:
+      - front
+    volumes:
+      - ../frontend/fe.landing/source/default.conf:/etc/nginx/conf.d/default.conf
+      - ../frontend/dist:/data/public
+
+
