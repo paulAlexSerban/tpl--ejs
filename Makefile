@@ -7,7 +7,6 @@ clean-server-dist:
 	@rm -rfv server/dist/*
 
 # INSTALL
-install: clean-server-dist
-# @cp -rfv ./dashboard/source/* ./server/dist/
-# @cp -rfv ./library/source ./server/dist/library/
-	@bash server/.bash install
+install:
+	@npm run compile
+	@docker-compose --env-file ./docker/.env -f ./docker/docker-compose.yml up -d --build

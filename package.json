@@ -4,7 +4,22 @@
   "description": "> Version 0.1.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "gulp clean --require @babel/register",
+    "clean:assets": "gulp clean:assets --require @babel/register",
+    "clean:fe": "gulp clean:fe --require @babel/register",
+    "clean:fe:landing": "gulp clean:fe:landing --require @babel/register",
+
+    "//////": "/////////////////////////////////////",
+    "compile": "gulp compile --require @babel/register",
+    "compile:assets": "gulp compile:assets --require @babel/register",
+    "compile:ui:landing": "gulp compile:ui:landing --require @babel/register",
+
+    "////////////": "////////////////////////////////////////////",
+    "deploy": "gulp deploy --require @babel/register",
+    "deploy::ui:landing": "gulp deploy:ui:landing --require @babel/register",
+
+    "///////////": "////////////////////////////////////////////",
+    "site": "gulp site --require @babel/register"
   },
   "repository": {
     "type": "git",
@@ -17,7 +32,8 @@
   },
   "homepage": "https://github.com/paulAlexSerban/ejs-project-template#readme",
   "devDependencies": {
-    "@babel/core": "^7.17.5",
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
     "@babel/plugin-transform-runtime": "^7.17.0",
@@ -50,6 +66,7 @@
     "gulp-strip-css-comments": "^2.0.0",
     "gulp-svgmin": "^4.1.0",
     "jquery": "^3.6.0",
+    "path-browserify": "^1.0.1",
     "postcss": "^8.4.8",
     "postcss-critical-split": "^2.5.3",
     "stylelint": "^14.5.3",
@@ -59,6 +76,7 @@
     "stylelint-scss": "^4.2.0",
     "terser-webpack-plugin": "^5.3.1",
     "webpack": "^5.69.1",
+    "webpack-node-externals": "^3.0.0",
     "webpack-stream": "^7.0.0"
   }
 }
