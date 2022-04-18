@@ -1,28 +1,69 @@
 {
-  "name": "basic-expressjs-server---nodejs",
+  "name": "ejs-project-template",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paulAlexSerban/Basic-ExpressJS-Server---NodeJS.git"
+    "clean": "gulp clean --require @babel/register",
+    "clean:assets": "gulp clean:assets --require @babel/register",
+    "clean:frontend": "gulp clean:fe --require @babel/register",
+    "clean:frontend:landing": "gulp clean:frontend:landing --require @babel/register",
+
+    "//////": "/////////////////////////////////////",
+    "compile": "gulp compile --require @babel/register",
+    "compile:assets": "gulp compile:assets --require @babel/register",
+    "compile:frontend:landing": "gulp compile:frontend:landing --require @babel/register",
+
+    "///////////": "////////////////////////////////////////////",
+    "site": "gulp site --require @babel/register"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/paulAlexSerban/Basic-ExpressJS-Server---NodeJS/issues"
-  },
-  "homepage": "https://github.com/paulAlexSerban/Basic-ExpressJS-Server---NodeJS#readme",
   "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1"
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/register": "^7.17.0",
+    "@ronilaukkarinen/gulp-stylelint": "^14.0.6",
+    "ansi-colors": "^4.1.1",
+    "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
+    "core-js": "^3.21.1",
+    "dart-sass": "^1.25.0",
+    "del": "^6.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-embed-svg": "^1.4.7",
+    "gulp-eslint": "^6.0.0",
+    "gulp-htmllint": "^0.0.19",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-hub": "^4.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-responsive": "^3.0.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-size": "^4.0.1",
+    "gulp-strip-css-comments": "^2.0.0",
+    "gulp-svgmin": "^4.1.0",
+    "jquery": "^3.6.0",
+    "path-browserify": "^1.0.1",
+    "postcss": "^8.4.8",
+    "postcss-critical-split": "^2.5.3",
+    "stylelint": "^14.5.3",
+    "stylelint-config-recommended-scss": "^5.0.2",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.2.0",
+    "terser-webpack-plugin": "^5.3.1",
+    "webpack": "^5.69.1",
+    "webpack-node-externals": "^3.0.0",
+    "webpack-stream": "^7.0.0"
   }
 }
