@@ -1,40 +1,41 @@
 
-export const PARENT_DIR = "frontend";
+export const PARENT_DIR = "./frontend";
 export const PROJECT_NAME = "fe.landing";
-export const PROJECT_PATH = `./${PARENT_DIR}/${PROJECT_NAME}/`;
-export const SRC_DIR = `${PROJECT_PATH}/source`;
-export const DIST_DIR = `${PROJECT_PATH}/dist`;
+
+export const PROJECT_PATH = `${PARENT_DIR}/${PROJECT_NAME}/`; // ./frontend/fe.landing/
+export const SRC_DIR = `${PROJECT_PATH}source`; // ./frontend/fe.landing/source
+export const DIST_DIR = `${PARENT_DIR}/dist`; // ./frontend/dist
 
 export const paths = {
   src: {
     styles: {
       scssFiles: [
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/scss/*/*/*/*.scss`,
+        `${SRC_DIR}/scss/*/*/*/*.scss`,
       ],
       scssWatchFiles: [
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/scss/*/*.scss`,
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/scss/*/*/*.scss`,
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/scss/*/*/*/*.scss`,
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/scss/*/*/*/*/*.scss`,
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/scss/*/*/*/*/*/*.scss`,
+        `${SRC_DIR}/scss/*/*.scss`,
+        `${SRC_DIR}/scss/*/*/*.scss`,
+        `${SRC_DIR}/scss/*/*/*/*.scss`,
+        `${SRC_DIR}/scss/*/*/*/*/*.scss`,
+        `${SRC_DIR}/scss/*/*/*/*/*/*.scss`,
       ],
       scssEntries: [
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/scss/modules/layout/pages/*.scss`,
+        `${SRC_DIR}/scss/modules/layout/pages/*.scss`,
       ],
       cssEntries: [
         `${DIST_DIR}/*/*/styles/.tmp/*.page.css`,
         `${DIST_DIR}/*/*/styles/.tmp/*.template.css`,
       ],
-      rawCssEntries: `${DIST_DIR}/*/*/.tmp/*.css`,
+      rawCssEntries: `${DIST_DIR}/styles/.tmp/*.css`,
     },
     javascript: {
       jsFiles: [
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/javascript/abstracts/*/*.js`,
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/javascript/modules/components/*/*.js`,
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/javascript/modules/structure/*/*.js`,
+        `${SRC_DIR}/javascript/abstracts/*/*.js`,
+        `${SRC_DIR}/javascript/modules/components/*/*.js`,
+        `${SRC_DIR}/javascript/modules/structure/*/*.js`,
       ],
       jsEntries: [
-        `./${PARENT_DIR}/${SRC_DIR}/frontend/javascript/modules/structure/pages/*.page.js`,
+        `${SRC_DIR}/javascript/modules/structure/pages/*.page.js`,
       ],
     },
   },

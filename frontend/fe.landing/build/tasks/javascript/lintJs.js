@@ -6,7 +6,7 @@ import plumber from "gulp-plumber";
 
 // JavaScript Linting
 export const lintJs = () => {
-  return src(paths.src.js.jsFiles, { since: lastRun(lintJs) })
+  return src(paths.src.javascript.jsFiles, { since: lastRun(lintJs) })
     .pipe(plumber())
     .pipe(eslint())
     // .pipe(debug({ title: "lintJs : ", minimal: false }))

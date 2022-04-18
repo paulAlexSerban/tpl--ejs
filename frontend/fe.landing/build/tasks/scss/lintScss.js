@@ -5,7 +5,7 @@ import { paths } from "../../config/paths";
 import plumber from "gulp-plumber";
 
 export const lintScss = () => {
-  return src(paths.src.css.scssFiles, { since: lastRun(lintScss) })
+  return src(paths.src.styles.scssFiles, { since: lastRun(lintScss) })
     .pipe(plumber())
     // .pipe(debug({ title: "lintScss : ", minimal: false}))
     .pipe(
