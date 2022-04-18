@@ -11,3 +11,7 @@ install:
 	@npm install
 	@npm run compile
 	@docker-compose --env-file ./docker/.env -f ./docker/docker-compose.yml up -d --build
+
+# STOP
+stop:
+	@docker-compose -f docker/docker-compose.yml down -v
