@@ -40,7 +40,7 @@ services:
       - ../backend/database/mock:/usr/src/app/database
       - /usr/src/app/node_modules
     depends_on:
-      - fontend-landing
+      - frontend-landing
       - assets-service
     
   assets-service:
@@ -55,7 +55,7 @@ services:
       - ../assets/source/default.conf:/etc/nginx/conf.d/default.conf
       - ../assets/dist:/data/assets
 
-  fontend-landing:
+  frontend-landing:
     build: 
       context: ../frontend/fe.landing/source
       dockerfile: landing.Dockerfile
@@ -64,7 +64,7 @@ services:
     networks:
       - back
     volumes:
-      - ../frontend/fe.landing/source/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ../frontend/fe.landing/source/default.conf:/etc/nginx/conf.d/default.conf
       - ../frontend/dist:/data/public
 
 

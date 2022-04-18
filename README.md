@@ -11,6 +11,9 @@
 1. RUN `make install`
 ### Start Developing
 
+### Stop docker instances
+1. RUN `make stop`
+
 ## Build steps/phase
 1. **"compile:\*"**
    1.1 *assets*

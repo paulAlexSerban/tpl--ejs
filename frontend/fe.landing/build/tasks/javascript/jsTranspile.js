@@ -11,7 +11,7 @@ import path from "path";
 import debug from 'gulp-debug';
 
 export const jsTranspileDev = () => {
-  return src(paths.src.js.jsEntries, { since: lastRun(jsTranspileProd) })
+  return src(paths.src.javascript.jsEntries, { since: lastRun(jsTranspileDev) })
     .pipe(debug({title: 'jsTranspile :'}))
     .pipe(plumber())
     .pipe(through(function(file) {
@@ -21,19 +21,16 @@ export const jsTranspileDev = () => {
     }))
     .pipe(gulpWebpack( webpackDevConfig, webpack))
     .pipe(rename((file) => {
-      const themeDir = file.dirname.split('/')[2];
-      const projectDir = file.dirname.split('/')[3];
-      console.log(file.dirname)
-      file.dirname = `${themeDir}/${projectDir}/public/javascript`;
+      file.dirname = `javascript`;
       const filename = file.basename.split('.');
       filename.pop();
       file.basename = filename.join('.');
     }))
-    .pipe(dest(paths.dist.distDir));
+    .pipe(dest(paths.dist));
 };
 
 export const jsTranspileProd = () => {
-  return src(paths.src.js.jsEntries)
+  return src(paths.src.javascript.jsEntries)
     .pipe(plumber())
     .pipe(through(function(file) {
       const relative = path.relative('.', file.path);
@@ -42,13 +39,10 @@ export const jsTranspileProd = () => {
     }))
     .pipe(gulpWebpack( webpackProdConfig, webpack))
     .pipe(rename((file) => {
-      const themeDir = file.dirname.split('/')[2];
-      const projectDir = file.dirname.split('/')[3];
-      console.log(file.dirname)
-      file.dirname = `${themeDir}/${projectDir}/javascript`;
+      file.dirname = `javascript`;
       const filename = file.basename.split('.');
       filename.pop();
       file.basename = filename.join('.');
     }))
-    .pipe(dest(paths.dist.distDir));
+    .pipe(dest(paths.dist));
 };

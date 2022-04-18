@@ -1,1 +1,16 @@
-[{"id":"749125148710","title":"test product","imageURL":"https://picsum.photos/200","description":"test","price":"123"},{"id":"257368469689","title":"extra roduct","imageURL":"https://picsum.photos/200","description":"test product","price":"1213"}]
+[
+  {
+    "id": "749125148710",
+    "title": "test product",
+    "imageURL": "./assets/images/ps-original.webp",
+    "description": "test",
+    "price": "123"
+  },
+  {
+    "id": "257368469689",
+    "title": "extra roduct",
+    "imageURL": "./assets/images/ps-original.webp",
+    "description": "test product",
+    "price": "1213"
+  }
+]

@@ -15,5 +15,6 @@ router.post('/edit-product', adminController.postEditProduct);
 
 router.post('/delete-product', adminController.postDeleteProduct);
 router.get("/assets/:dir/:file", assetsController.getAssets);
+router.get("/public/:dir/:file", assetsController.getPublic);
 
 exports.routes = router;

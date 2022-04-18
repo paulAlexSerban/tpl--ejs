@@ -1,7 +1,6 @@
 import del from "del";
-import { paths } from "../config/paths";
-import { PROJECT_PATH } from "../config/constants";
+import { paths, DIST_DIR } from "../config/paths";
 
 export const removeTemporaryFiles = () => {
-  return del([`${paths.dist.distDir}/${PROJECT_PATH}/styles/.tmp`]);
+  return del([`${paths.dist}/styles/.tmp`]);
 };
