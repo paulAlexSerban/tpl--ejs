@@ -1,36 +1,23 @@
 {
   "name": "ejs-project-template",
-  "version": "0.1.0",
-  "description": "> Version 0.1.0",
+  "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "clean": "gulp clean --require @babel/register",
     "clean:assets": "gulp clean:assets --require @babel/register",
-    "clean:fe": "gulp clean:fe --require @babel/register",
-    "clean:fe:landing": "gulp clean:fe:landing --require @babel/register",
+    "clean:frontend": "gulp clean:fe --require @babel/register",
+    "clean:frontend:landing": "gulp clean:frontend:landing --require @babel/register",
 
     "//////": "/////////////////////////////////////",
     "compile": "gulp compile --require @babel/register",
     "compile:assets": "gulp compile:assets --require @babel/register",
-    "compile:ui:landing": "gulp compile:ui:landing --require @babel/register",
-
-    "////////////": "////////////////////////////////////////////",
-    "deploy": "gulp deploy --require @babel/register",
-    "deploy::ui:landing": "gulp deploy:ui:landing --require @babel/register",
+    "compile:frontend:landing": "gulp compile:frontend:landing --require @babel/register",
 
     "///////////": "////////////////////////////////////////////",
     "site": "gulp site --require @babel/register"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/paulAlexSerban/ejs-project-template.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/paulAlexSerban/ejs-project-template/issues"
-  },
-  "homepage": "https://github.com/paulAlexSerban/ejs-project-template#readme",
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/node": "^7.16.8",

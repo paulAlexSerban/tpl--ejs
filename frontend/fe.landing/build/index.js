@@ -15,7 +15,7 @@ import { removeTemporaryFiles } from "./tasks/removeTemporaryFiles";
 // import { deploy } from "./tasks/deploy";
 
 task("clean", clean);
-task("clean:fe", series("clean"));
+task("clean:frontend", series("clean"));
 
 // LINT
 task("lint:styles", lintScss);
