@@ -8,5 +8,6 @@ clean-server-dist:
 
 # INSTALL
 install:
+	@npm install
 	@npm run compile
 	@docker-compose --env-file ./docker/.env -f ./docker/docker-compose.yml up -d --build
