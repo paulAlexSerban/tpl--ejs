@@ -14,7 +14,12 @@
     "compile:frontend:landing": "gulp compile:frontend:landing --require @babel/register",
 
     "///////////": "////////////////////////////////////////////",
-    "site": "gulp site --require @babel/register"
+    "site": "gulp site --require @babel/register",
+    "/":"CLEAN",
+    "clean:server":"rm -rfv server/dist/*",
+    "//":"BUILD",
+    "build:compose":"docker-compose --env-file ./docker/.env -f ./docker/docker-compose.yml up -d --build"
+
   },
   "author": "",
   "license": "ISC",
