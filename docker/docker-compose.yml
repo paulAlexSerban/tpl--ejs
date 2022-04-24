@@ -1,70 +1,38 @@
-version: "3"
-
-networks:
-  front:
-    driver: bridge
-  back:
-    driver: bridge
-  docker-network:
-    driver: bridge
-
+version: "3.7"
 services:
   nginx-proxy:
     build:
-      context: ../backend/core/proxy.nginx
+      context: ../backend/proxy
       dockerfile: nginx.Dockerfile
     restart: always
     volumes:
-      - ../backend/core/proxy.nginx/config/default.conf:/etc/nginx/conf.d/default.conf
+      - ../backend/proxy/config/default.conf:/etc/nginx/conf.d/default.conf
     container_name: nginx-proxy
     ports:
       - "80:80"
-      - "443:443"
-    networks:
-      - docker-network
-      - front
+
     depends_on:
       - mvc-landing
-
   mvc-landing:
     build: 
-      context: ../backend/api/mvc.landing/source
+      context: ../backend/apis/mvc.landing
       dockerfile: express.Dockerfile
     container_name: express-mvc-landing
     restart: always
-    networks:
-      - front
-      - back
     volumes:
-      - ../backend/api/mvc.landing/source:/usr/src/app
+      - ../backend/apis/mvc.landing:/usr/src/app
       - ../backend/database/mock:/usr/src/app/database
       - /usr/src/app/node_modules
     depends_on:
-      - frontend-landing
-      - assets-service
-    
-  assets-service:
+      - public-service
+
+  public-service:
     build: 
-      context: ../assets/source
-      dockerfile: assets.Dockerfile
-    container_name: assets-service
+      context: ../backend/public
+      dockerfile: public.Dockerfile
+    container_name: public-service
     restart: always
-    networks:
-      - back
     volumes:
-      - ../assets/source/default.conf:/etc/nginx/conf.d/default.conf
-      - ../assets/dist:/data/assets
-
-  frontend-landing:
-    build: 
-      context: ../frontend/fe.landing/source
-      dockerfile: landing.Dockerfile
-    container_name: fe-landing-service
-    restart: always
-    networks:
-      - back
-    volumes:
-      - ../frontend/fe.landing/source/default.conf:/etc/nginx/conf.d/default.conf
-      - ../frontend/dist:/data/public
-
-
+      - ../backend/public/config/default.conf:/etc/nginx/conf.d/default.conf
+      - ../assets/dist:/data/public/
+      - ../frontend/landing/dist:/data/public/landing/
