@@ -1,10 +1,12 @@
 import { src, dest } from "gulp";
 import plumber from "gulp-plumber";
 import svgmin from 'gulp-svgmin';
-import { paths } from "../config/paths";
+
+const svgEntries = "./source/svgs/*";
+const svgDistDir = "./dist/svgs";
 
 export const compileSvgs = () => {
-  return src(`${paths.entries}/svgs/*`)
+  return src(svgEntries)
     .pipe(plumber())
     .pipe(svgmin({
       // Ensures the best optimization.
@@ -33,5 +35,5 @@ export const compileSvgs = () => {
         },
       ],
     }))
-    .pipe(dest([`${paths.dist}/svgs`]));
+    .pipe(dest(svgDistDir));
 };

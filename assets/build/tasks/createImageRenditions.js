@@ -1,7 +1,6 @@
 import gulpResponsive from "gulp-responsive";
 import { src, dest } from "gulp";
 import plumber from "gulp-plumber";
-import { paths } from "../config/paths";
 
 const imgRenditionConf = {
   "*": [
@@ -44,9 +43,11 @@ const imgRenditionConf = {
   ]
 };
 
+const originalImageEntries = "./source/images/*";
+const renditionsDir = "./dist/images";
 
 export const createImageRenditions = () => {
-  return src(`${paths.entries}/images/*`)
+  return src(originalImageEntries)
     .pipe(plumber())
     .pipe(
       gulpResponsive(imgRenditionConf, {
@@ -56,5 +57,5 @@ export const createImageRenditions = () => {
         withoutEnlargement: false
       })
     )
-    .pipe(dest([`${paths.dist}/images`]));
+    .pipe(dest(renditionsDir));
 };
