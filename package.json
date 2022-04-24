@@ -1,6 +1,6 @@
 {
   "name": "ejs-project-template",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.js",
   "scripts": {
     "//": "  INSTALL",
@@ -9,8 +9,8 @@
     "build:all": "npm run build:assets && npm run build:landing",
     "build:assets": "npm run build --prefix assets",
     "build:landing": "npm run build --prefix frontend/landing",
-    "////":"DOCKER",
-    "start:compose":"docker-compose --env-file .env up -d --build",
+    "////": "DOCKER",
+    "start:compose": "docker-compose --env-file .env up -d --build",
     "stop:compose": "docker-compose down --volumes --rmi all"
   },
   "author": "",
