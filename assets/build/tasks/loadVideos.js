@@ -1,9 +1,17 @@
 import { src, dest } from "gulp";
 import plumber from "gulp-plumber";
-import { paths } from "../config/paths";
+import size from 'gulp-size';
+
+const videoEntries = "./source/videos/*";
+const videoDistDir = "./dist/videos";
 
 export const loadVideos = () => {
-  return src(`${paths.entries}/videos/*`)
+  return src(videoEntries)
     .pipe(plumber())
-    .pipe(dest([`${paths.dist}/videos`]));
+    .pipe(size({
+      title: 'video: ',
+      showFiles: true,
+      showTotal: true
+    }))
+    .pipe(dest(videoDistDir));
 };
