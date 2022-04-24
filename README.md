@@ -1,7 +1,5 @@
 # EJS Project Template
 
-> Version 1.0.0
-
 ## How to use ...
 ### Requirements
 * Docker & Docker-compose
